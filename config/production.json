@@ -1,0 +1,14 @@
+{
+  "App": {
+    "appConfig": {
+      "host": "localhost",
+      "port": 3000
+    },
+    "dbConfig": {
+      "uri": "mongodb://mongo:27017/users"
+    },
+    "jwtConfig": {
+      "secret": "jwt_secret_key"
+    }
+  }
+}

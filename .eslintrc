@@ -1,0 +1,67 @@
+{
+  "extends": [
+    "airbnb/base"
+  ],
+  "plugins": [
+    "jest"
+  ],
+  "env": {
+    "es6": true,
+    "node": true,
+    "jest/globals": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018
+  },
+  "rules": {
+    "arrow-parens": [
+      "error",
+      "as-needed",
+      {
+        "requireForBlockBody": true
+      }
+    ],
+    "class-methods-use-this": "off",
+    "eol-last": "off",
+    "import/no-unresolved": "off",
+    "indent": "off",
+    "linebreak-style": "off",
+    "max-len": [
+      "error",
+      {
+        "code": 150
+      }
+    ],
+    "no-console": "off",
+    "no-empty": "off",
+    "no-plusplus": [
+      "error",
+      {
+        "allowForLoopAfterthoughts": true
+      }
+    ],
+    "no-return-await": "off",
+    "no-underscore-dangle": "off",
+    "object-curly-newline": [
+      "error",
+      {
+        "ImportDeclaration": "never",
+        "ObjectPattern": {
+          "multiline": true
+        }
+      }
+    ],
+    "operator-linebreak": [
+      "error",
+      "after"
+    ],
+    "quotes": [
+      "error",
+      "double"
+    ],
+    "semi": [
+      "error",
+      "always"
+    ]
+  }
+}
