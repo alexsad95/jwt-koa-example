@@ -1,7 +1,7 @@
 const request = require("supertest");
 const app = require("../src/app");
 const prepareToken = require("./utils/prepareToken");
-const dbHandler = require("./utils/dbHandler");
+const dbHandler = require("../src/services/dbHandler");
 const usersService = require("../src/services/users");
 
 const req = request.agent(app().callback());

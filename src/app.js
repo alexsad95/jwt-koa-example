@@ -3,7 +3,7 @@ const Router = require("koa-router");
 const jwtMiddleware = require("koa-jwt");
 const config = require("config");
 const mongoose = require("mongoose");
-const dbHandler = require("../test/utils/dbHandler");
+const dbHandler = require("./services/dbHandler");
 
 const usersRoute = require("./routes/users");
 const authRoute = require("./routes/auth");

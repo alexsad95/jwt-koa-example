@@ -1,6 +1,6 @@
 const request = require("supertest");
 const app = require("../src/app");
-const dbHandler = require("./utils/dbHandler");
+const dbHandler = require("../src/services/dbHandler");
 
 beforeAll(async () => {
   await dbHandler.connect();
