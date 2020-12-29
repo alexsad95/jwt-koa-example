@@ -18,7 +18,7 @@ App routes:
 
 All dependencies can be viewed in the file `package.json`.The application is based on the framework `Koa`.
 Data storage in `MongoDB` and `Mongoose` ODM. For run app and run tests locally, used `mongodb-memory-server` module, by default it holds the data in memory. Also it's used to run in Docker container.
-`Jest` framework was used for testing.
+`Jest` and `Supertest` was used for testing.
 
 ## Running Application
 
