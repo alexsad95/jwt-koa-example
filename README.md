@@ -22,7 +22,7 @@ Data storage in `MongoDB` and `Mongoose` ODM. For run app and run tests locally,
 
 ## Running Application
 
-##### For run app locally
+#### For run app locally
 
 Install all dependencies
 
@@ -42,7 +42,7 @@ Run test locally
 yarn test
 ```
 
-##### For run app in docker
+#### For run app in docker
 
 Build app in container
 
