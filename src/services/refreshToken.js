@@ -12,7 +12,6 @@ async function add(values) {
     await token.save();
     return token;
   } catch (error) {
-    console.log("---error:\n", error.message);
     throw new Error(error);
   }
 }
@@ -22,7 +21,6 @@ async function find(values) {
     const token = await Tokens.findOne(values);
     return token;
   } catch (error) {
-    console.log("---error:\n", error.message);
     throw new Error(error);
   }
 }
@@ -35,7 +33,6 @@ async function update(query, values) {
     }
     return false;
   } catch (error) {
-    console.log("---error:\n", error.message);
     throw new Error(error);
   }
 }
@@ -48,7 +45,6 @@ async function remove(values) {
     }
     return false;
   } catch (error) {
-    console.log("---error:\n", error.message);
     throw new Error(error);
   }
 }

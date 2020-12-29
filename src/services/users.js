@@ -14,7 +14,6 @@ async function add(values) {
     await user.save();
     return user;
   } catch (error) {
-    console.log("---error:\n", error.message);
     throw new Error(error);
   }
 }
@@ -24,7 +23,6 @@ async function find(values) {
     const user = await Users.findOne(values);
     return user;
   } catch (error) {
-    console.log("---error:\n", error.message);
     throw new Error(error);
   }
 }
@@ -34,7 +32,6 @@ async function list() {
     const users = await Users.find();
     return users;
   } catch (error) {
-    console.log("---error:\n", error.message);
     throw new Error(error);
   }
 }
@@ -47,7 +44,6 @@ async function update(query, values) {
     }
     return false;
   } catch (error) {
-    console.log("---error:\n", error.message);
     throw new Error(error);
   }
 }
@@ -57,10 +53,4 @@ module.exports = {
   find,
   list,
   update,
-};
-
-module.exports.create = async (user) => {
-  if (!user) { throw new Error("Missing user"); }
-
-  await Users.create(user);
 };

@@ -2,23 +2,22 @@ const Koa = require("koa");
 const Router = require("koa-router");
 const jwtMiddleware = require("koa-jwt");
 const config = require("config");
-// const mongoose = require("mongoose");
+const mongoose = require("mongoose");
+const dbHandler = require("../test/utils/dbHandler");
 
 const usersRoute = require("./routes/users");
 const authRoute = require("./routes/auth");
 
 function App() {
-  // mongoose.connect(config.get("App.dbConfig.uri"), {
-  //   useUnifiedTopology: true,
-  //   useNewUrlParser: true,
-  //   useCreateIndex: true,
-  // });
-
-  // const { connection } = mongoose;
-
-  // connection.once("open", () => {
-  //   console.log("\nMongoDB database connection established successfully\n");
-  // });
+  if (process.env.NODE_ENV === "production") {
+    dbHandler.connect();
+    mongoose.connection.on("error", (err) => {
+      console.log("error:\n", err);
+    });
+    mongoose.connection.on("open", () => {
+      console.log("\nMongoDB database connection established successfully\n");
+    });
+  }
 
   const app = new Koa();
   const router = new Router();
@@ -27,6 +26,14 @@ function App() {
     ctx.body = "Ok";
   });
 
+  router.use(async (ctx, next) => {
+    try {
+      await next();
+    } catch (err) {
+      ctx.status = err.status || 500;
+      ctx.body = err.message;
+    }
+  });
   router.use("/auth", authRoute.routes());
   router.use(
     jwtMiddleware({

@@ -5,7 +5,7 @@
   "author": "alexsad",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon src/app.js",
+    "start": "NODE_ENV=production nodemon src/app.js",
     "lint": "eslint ./src",
     "test": "jest --runInBand --detectOpenHandles ./test"
   },

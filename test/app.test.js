@@ -1,5 +1,14 @@
 const request = require("supertest");
 const app = require("../src/app");
+const dbHandler = require("./utils/dbHandler");
+
+beforeAll(async () => {
+  await dbHandler.connect();
+});
+
+afterAll(async () => {
+  await dbHandler.closeDatabase();
+});
 
 test("App works", async () => {
   const response = await request(app().callback()).get("/");

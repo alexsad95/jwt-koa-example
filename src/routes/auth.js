@@ -28,9 +28,7 @@ router.post("/login", bodyParser(), async (ctx) => {
   const { login, password } = ctx.request.body;
   const user = await userService.find({ login });
   if (!user || !compareSync(password, user.password)) {
-    const error = new Error();
-    error.status = 403;
-    throw error;
+    ctx.throw(403, "Forbiden");
   }
   ctx.body = await issueTokenPair(user.guid);
 });
@@ -39,9 +37,7 @@ router.post("/register", bodyParser(), async (ctx) => {
   const { login, password } = ctx.request.body;
   const user = await userService.find({ login });
   if (user) {
-    const error = new Error();
-    error.status = 403;
-    throw error;
+    ctx.throw(403, "User already exists");
   }
   const res = await userService.add({ login, password });
   if (res) ctx.body = await issueTokenPair(res.guid);
